@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Input, Button } from "reactstrap";
+import { Input, Button, Container, Row } from "reactstrap";
 
 class App extends React.Component {
   constructor(props) {
@@ -109,95 +109,99 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <ul>
-            {Object.entries(this.state.entries).map(([key, value]) => (
-              <li>
-                <span>
-                  {Object.values(this.state.entries[key][0])}:
-                  {Object.keys(this.state.entries[key][1])[0]},
-                  {Object.values(this.state.entries[key][1])}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <Input
-            id="ID"
-            placeholder="ID"
-            onChange={(event) => this.handleKeys(event)}
-            style={{ width: "50px" }}
-          />
-          <Input
-            id="key"
-            placeholder="key"
-            onChange={(event) => this.handleKeys(event)}
-            style={{ width: "100px" }}
-          />
-          <Input
-            id="value"
-            placeholder="value"
-            onChange={(event) => this.handleKeys(event)}
-            style={{ width: "100px" }}
-          />
-          <p>
-            {this.state.ID} {this.state.key} {this.state.value}
-          </p>
-          <Button
-            outline
-            color="secondary"
-            size="lg"
-            onClick={this.handleClick}
-            id="create"
-          >
-            create
-          </Button>
-          <Button
-            outline
-            color="primary"
-            size="lg"
-            onClick={this.handleClick}
-            id="read"
-          >
-            read
-          </Button>
-          <Button
-            outline
-            color="warning"
-            size="lg"
-            onClick={this.handleClick}
-            id="update"
-          >
-            update
-          </Button>
-          <Button
-            outline
-            color="danger"
-            size="lg"
-            onClick={this.handleClick}
-            id="delete"
-          >
-            delete
-          </Button>
-          <Button
-            outline
-            color="info"
-            size="lg"
-            onClick={this.handleClick}
-            id="upload"
-          >
-            upload
-          </Button>
-          <Button
-            outline
-            color="info"
-            size="lg"
-            onClick={this.handleClick}
-            id="download"
-          >
-            download
-          </Button>
-        </header>
+      <div className="App-header">
+        <ul>
+          {Object.entries(this.state.entries).map(([key, value]) => (
+            <li>
+              <span>
+                {Object.values(this.state.entries[key][0])}:
+                {Object.keys(this.state.entries[key][1])[0]},
+                {Object.values(this.state.entries[key][1])}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <Container>
+          <Row xs="3">
+            <Input
+              id="ID"
+              placeholder="ID"
+              onChange={(event) => this.handleKeys(event)}
+              style={{ width: "50px" }}
+            />
+            <Input
+              id="key"
+              placeholder="Key"
+              onChange={(event) => this.handleKeys(event)}
+              style={{ width: "100px" }}
+            />
+            <Input
+              id="value"
+              placeholder="Value"
+              onChange={(event) => this.handleKeys(event)}
+              style={{ width: "100px" }}
+            />
+            <p>
+              {this.state.ID}: {this.state.key} {this.state.value}
+            </p>
+          </Row>
+          <Row xs="3">
+            <Button
+              outline
+              color="secondary"
+              size="md"
+              onClick={this.handleClick}
+              id="create"
+            >
+              create
+            </Button>
+            <Button
+              outline
+              color="primary"
+              size="md"
+              onClick={this.handleClick}
+              id="read"
+            >
+              read
+            </Button>
+            <Button
+              outline
+              color="warning"
+              size="md"
+              onClick={this.handleClick}
+              id="update"
+            >
+              update
+            </Button>
+            <Button
+              outline
+              color="danger"
+              size="md"
+              onClick={this.handleClick}
+              id="delete"
+            >
+              delete
+            </Button>
+            <Button
+              outline
+              color="info"
+              size="md"
+              onClick={this.handleClick}
+              id="upload"
+            >
+              upload
+            </Button>
+            <Button
+              outline
+              color="info"
+              size="md"
+              onClick={this.handleClick}
+              id="download"
+            >
+              download
+            </Button>
+          </Row>
+        </Container>
       </div>
     );
   }
